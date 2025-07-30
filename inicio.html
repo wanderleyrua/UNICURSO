@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CLASES IA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../UNICURSO/Bootstrap.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WANDER-IA</a>
+    </div>
+
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+    <li><a class="nav-link" href="#section1"><i class="fas fa-brain"></i> HTML</a></li>
+      <li><a class="nav-link" href="#section2"><i class="fas fa-robot"></i> CSS</a></li>
+      <li><a class="nav-link" href="#section3"><i class="fas fa-chart-line"></i> JAVA</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-layer-group"></i> SQL <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#section41">SQL</a></li>
+          <li><a href="#section42">OTROS LENGUAJES</a></li> 
+        </ul>
+      </li>
+    </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div id="section1">
+  <h1 style="color: white;">HTML HYPERTEXT MARKUP LANGUAGE</h1><br><br>
+
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item">        
+        <iframe src="https://jsfiddle.net/" title="jsfiddle"></iframe>
+        <a class="link-ir-pagina"href="https://jsfiddle.net/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://www.htmldog.com/guides/html/" title="htmldog"></iframe>
+        <a class="link-ir-pagina"href="https://www.htmldog.com/guides/html/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://html5doctor.com/" title="html5doctor"></iframe>
+        <a class="link-ir-pagina"href="https://html5doctor.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://platzi.com/" title="platzi"></iframe>
+        <a class="link-ir-pagina"href="https://platzi.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+    </div>
+
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(track.children);
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+
+  const itemsVisible = 3;
+
+  // Actualizamos itemWidth dinámicamente para que funcione bien aunque cambie el tamaño
+  function getItemWidth() {
+    const itemStyle = getComputedStyle(items[0]);
+    return items[0].getBoundingClientRect().width + 
+           parseFloat(itemStyle.marginLeft) + 
+           parseFloat(itemStyle.marginRight);
+  }
+
+  let currentIndex = 0;
+  let maxIndex = items.length - itemsVisible;
+
+  function updateCarousel() {
+    const itemWidth = getItemWidth();
+    const moveX = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = maxIndex;
+    }
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex > maxIndex) {
+      currentIndex = 0;
+    }
+    updateCarousel();
+  });
+
+  // Ajustar maxIndex y hacer update al cambiar tamaño ventana
+  window.addEventListener('resize', () => {
+    maxIndex = items.length - itemsVisible;
+    if (currentIndex > maxIndex) currentIndex = maxIndex >= 0 ? maxIndex : 0;
+    updateCarousel();
+  });
+
+  // Inicializar
+  updateCarousel();
+</script>
+
+
+
+
+
+<div id="section2">
+  <h1 style="color: white;">CSS - CASCADE STYLE SHEET</h1><br><br>
+
+  <div class="carousel">
+    <div class="carousel-track-2">
+      <div class="carousel-item">
+        <iframe src="https://flexboxfroggy.com/#es" title="flexboxfroggy"></iframe>
+        <a class="link-ir-pagina"href="https://platzi.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://www.codecademy.com/learn/learn-css" title="codecademy"></iframe>
+        <a class="link-ir-pagina"href="https://www.codecademy.com/learn/learn-css" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://www.harvard.edu/" title="harvard"></iframe>
+        <a class="link-ir-pagina"href="https://www.harvard.edu/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>      
+      <div class="carousel-item">
+        <iframe src="https://www.csszengarden.com/" title="csszengarden"></iframe>
+        <a class="link-ir-pagina"href="https://www.csszengarden.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+    </div>
+
+    <button class="carousel-button2 prev2">&#10094;</button>
+    <button class="carousel-button2 next2">&#10095;</button>
+
+  </div>
+</div>
+
+<script>
+function initCarousel(trackSelector, prevBtnSelector, nextBtnSelector, itemsVisible = 3) {
+  const track = document.querySelector(trackSelector);
+  const items = Array.from(track.children);
+  const prevButton = document.querySelector(prevBtnSelector);
+  const nextButton = document.querySelector(nextBtnSelector);
+
+  const itemStyle = getComputedStyle(items[0]);
+  const itemWidth = items[0].getBoundingClientRect().width +
+                    parseFloat(itemStyle.marginLeft) +
+                    parseFloat(itemStyle.marginRight);
+
+  let currentIndex = 0;
+  const maxIndex = items.length - itemsVisible;
+
+  function updateCarousel() {
+    const moveX = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = maxIndex;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    updateCarousel();
+  });
+
+  updateCarousel();
+}
+
+// Carrusel 2
+initCarousel('.carousel-track-2', '.carousel-button2.prev2', '.carousel-button2.next2');
+</script>
+
+
+<div id="section3">
+  <h1 style="color: white;">JAVASCRIPT LIGHTWEIGHT OBJECT-ORIENTED PROGRAMMING</h1><br><br>
+
+  <div class="carousel">
+    <div class="carousel-track-3">
+      <div class="carousel-item">
+        <iframe src="https://playcode.io/" title="playcode"></iframe>
+        <a class="link-ir-pagina"href="https://playcode.io/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://codesandbox.io/" title="codecademy"></iframe>
+        <a class="link-ir-pagina"href="https://codesandbox.io/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://stackblitz.com/" title="stackblitz"></iframe>
+        <a class="link-ir-pagina"href="https://stackblitz.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>      
+      <div class="carousel-item">
+        <iframe src="https://eloquentjavascript.net/" title="eloquentjavascript"></iframe>
+        <a class="link-ir-pagina"href="https://eloquentjavascript.net/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+    </div>
+
+    <button class="carousel-button3 prev3">&#10094;</button>
+    <button class="carousel-button3 next3">&#10095;</button>
+  </div>
+</div>
+
+<script>
+function initCarousel(trackSelector, prevBtnSelector, nextBtnSelector, itemsVisible = 3) {
+  const track = document.querySelector(trackSelector);
+  const items = Array.from(track.children);
+  const prevButton = document.querySelector(prevBtnSelector);
+  const nextButton = document.querySelector(nextBtnSelector);
+
+  const itemStyle = getComputedStyle(items[0]);
+  const itemWidth = items[0].getBoundingClientRect().width +
+                    parseFloat(itemStyle.marginLeft) +
+                    parseFloat(itemStyle.marginRight);
+
+  let currentIndex = 0;
+  const maxIndex = items.length - itemsVisible;
+
+  function updateCarousel() {
+    const moveX = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = maxIndex;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    updateCarousel();
+  });
+
+  updateCarousel();
+}
+
+// Carrusel 3
+initCarousel('.carousel-track-3', '.carousel-button3.prev3', '.carousel-button3.next3');
+</script>
+
+
+
+<div id="section41">
+  <h1 style="color: white;">SQL STRUCTURED QUERY LANGUAGE</h1><br><br>
+
+  <div class="carousel">
+    <div class="carousel-track-41">
+      <div class="carousel-item">
+        <iframe src="https://sqlfiddle.com/" title="sqlfiddle"></iframe>
+        <a class="link-ir-pagina"href="https://sqlfiddle.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://www.stratascratch.com/" title="stratascratch"></iframe>
+        <a class="link-ir-pagina"href="https://www.stratascratch.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://learnsql.com/" title="learn"></iframe>
+        <a class="link-ir-pagina"href="https://learnsql.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>  
+      <div class="carousel-item">
+        <iframe src="https://academy.vertabelo.com/" title="academy"></iframe>
+        <a class="link-ir-pagina"href="https://academy.vertabelo.com/" target="_blank" rel="noopener noreferrer">  IR A LA PÁGINA</a>
+      </div>
+    </div>
+
+    <button class="carousel-button41 prev41">&#10094;</button>
+    <button class="carousel-button41 next41">&#10095;</button>
+  </div>
+</div>
+
+<script>
+function initCarousel(trackSelector, prevBtnSelector, nextBtnSelector, itemsVisible = 3) {
+  const track = document.querySelector(trackSelector);
+  const items = Array.from(track.children);
+  const prevButton = document.querySelector(prevBtnSelector);
+  const nextButton = document.querySelector(nextBtnSelector);
+
+  const itemStyle = getComputedStyle(items[0]);
+  const itemWidth = items[0].getBoundingClientRect().width +
+                    parseFloat(itemStyle.marginLeft) +
+                    parseFloat(itemStyle.marginRight);
+
+  let currentIndex = 0;
+  const maxIndex = items.length - itemsVisible;
+
+  function updateCarousel() {
+    const moveX = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = maxIndex;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    updateCarousel();
+  });
+
+  updateCarousel();
+}
+
+// Carrusel 41 - asegúrate que el selector de track coincida con la clase en HTML
+initCarousel('.carousel-track-41', '.carousel-button41.prev41', '.carousel-button41.next41');
+</script>
+
+
+<div id="section42" class="container-fluid">
+  <h1>OTROS LENGUAJES</h1>  
+  <div class="frame">
+  <button class="custom-btn btn-1">Python</button>
+  <button class="custom-btn btn-2">Java</button>
+  <button class="custom-btn btn-3"><span>C#</span></button>
+  <button class="custom-btn btn-4"><span>PHP</span></button>
+  <button class="custom-btn btn-5"><span>C++</span></button>
+  <button class="custom-btn btn-6"><span>Ruby</span></button>
+  <button class="custom-btn btn-7"><span>Bash</span></button>
+  <button class="custom-btn btn-8"><span>Mongo</span></button>
+  <button class="custom-btn btn-9">HOW TO</button>
+  <button class="custom-btn btn-10">React</button>
+  <button class="custom-btn btn-11">Jquery<div class="dot"></div></button>
+  <button class="custom-btn btn-12"><span>Click!</span><span>Django</span></button>
+  <button class="custom-btn btn-13">Node js</button>
+  <button class="custom-btn btn-14">Angular</button>
+  <button class="custom-btn btn-15">GitHub</button>
+  <button class="custom-btn btn-16">Kotlin</button>  
+</div>
+</div>
+
+
+
+
+
+
+<section id="contacto" class="container-fluid bg-dark text-light fade-in" style="background-color: #034124; color: #fff;">
+  <div class="container">
+    <h2 class="text-center" style="margin-bottom: 30px;">CONTÁCTANOS</h2>
+    <form id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <div id="formMensaje" style="margin-top: 20px;"></div>
+    </form>
+  </div>
+</section>
+
+
+<footer id="main-footer">
+  <div class="container">
+    <p><strong>Contacto:</strong></p>
+    <p style="color: white;"></p><i class="fas fa-envelope"></i> contacto@wander-ia.com</p>
+    <p style="color: white;"></p><i class="fas fa-phone"></i> +34 600 123 456</p>
+    <p class="social-links">
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a> |
+      <a href="#"><i class="fab fa-github"></i> GitHub</a> |
+      <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </p>
+    <p style="color: white;" class="copyright">&copy; 2025 WANDER-IA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
